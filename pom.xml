@@ -4,7 +4,7 @@
 
 	<groupId>com.ameba.elasticsearch.japanese</groupId>
 	<artifactId>elasticsearch-alanysis-japanese</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>elasticsearch-alanysis-japanese</name>
@@ -24,7 +24,7 @@
 	</properties>
 
 	<build>
-		<finalName>analysis-japanese-${version}</finalName>
+		<finalName>elasticsearch-analysis-japanese-${version}</finalName>
 		<pluginManagement>
 			<plugins>
 				<plugin>
