@@ -13,4 +13,4 @@ In order to install the plugin, simply run: `bin/plugin -install suguru/elastics
     | 1.0.0                    | 0.18 -> master |
     --------------------------------------------------
 
-The plugin includes the `japanese` analyzer, `japanese_sentence` tokenizer, `japanese_basic_form`,`japanese_katakana_stem1`,`japanese_part_of_speech_keep`,`japanese_part_of_speech_stop1`,`japanese_punctuation` and `japanese_width` token filter.
+The plugin includes the `japanese` analyzer, `japanese_sentence` tokenizer, `japanese_basic_form`,`japanese_katakana_stem`,`japanese_part_of_speech_keep`,`japanese_part_of_speech_stop`,`japanese_punctuation` and `japanese_width` token filter.
