@@ -4,7 +4,7 @@
 
 	<groupId>com.ameba.elasticsearch.japanese</groupId>
 	<artifactId>elasticsearch-alanysis-japanese</artifactId>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 	<packaging>jar</packaging>
 
 	<name>elasticsearch-alanysis-japanese</name>
@@ -18,13 +18,14 @@
 	<url>http://ameba.jp/</url>
 
 	<properties>
-        <elasticsearch.version>0.18.6</elasticsearch.version>
-        <lucene.version>3.5.0</lucene.version>
+		<elasticsearch.version>0.18.6</elasticsearch.version>
+		<lucene.version>3.5.0</lucene.version>
+		<kuromoji.version>0.7.7</kuromoji.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<build>
-		<finalName>elasticsearch-analysis-japanese-${version}</finalName>
+		<finalName>elasticsearch-analysis-japanese-${project.version}</finalName>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -47,16 +48,16 @@
 			</plugins>
 		</pluginManagement>
 		<plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.11</version>
-                <configuration>
-                    <includes>
-                        <include>**/Test*.java</include>
-                    </includes>
-                </configuration>
-            </plugin>		
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.11</version>
+				<configuration>
+					<includes>
+						<include>**/Test*.java</include>
+					</includes>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
@@ -72,49 +73,70 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 	<repositories>
 		<repository>
 			<id>Sonatype Release</id>
-			<url>https://oss.sonatype.org/content/repositories/releases/</url> 
+			<url>https://oss.sonatype.org/content/repositories/releases/</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
 			<releases>
-				<enabled>true</enabled> 
+				<enabled>true</enabled>
 			</releases>
 		</repository>
+		<repository>
+			<id>ATILIKA dependencies</id>
+			<url>http://www.atilika.org/nexus/content/repositories/atilika</url>
+		</repository>
 	</repositories>
+	
+	<dependencies>
 
-    <dependencies>
-    
-        <dependency>
-            <groupId>org.elasticsearch</groupId>
-            <artifactId>elasticsearch</artifactId>
-            <version>${elasticsearch.version}</version>
-        </dependency>
+		<dependency>
+			<groupId>org.elasticsearch</groupId>
+			<artifactId>elasticsearch</artifactId>
+			<version>${elasticsearch.version}</version>
+			<scope>compile</scope>
+		</dependency>
 
-        <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-core</artifactId>
-            <version>${lucene.version}</version>
-        </dependency>
-        
-        <dependency>
-        	<groupId>org.apache.lucene</groupId>
-        	<artifactId>lucene-gosen-ipadic</artifactId>
-        	<version>1.2.1</version>
-        	<scope>system</scope>
-        	<systemPath>${basedir}/lib/lucene-gosen-1.2.1-ipadic.jar</systemPath>
-        </dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-core</artifactId>
+			<version>${lucene.version}</version>
+			<scope>compile</scope>
+		</dependency>
 
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.16</version>
-            <scope>runtime</scope>
-        </dependency>
-    
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.atilika.kuromoji</groupId>
+	    	<artifactId>kuromoji</artifactId>
+	    	<version>${kuromoji.version}</version>
+	    	<type>jar</type>
+		</dependency>
+		
+		<!-- 
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-gosen-ipadic</artifactId>
+			<version>1.2.1</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/lucene-gosen-1.2.1-ipadic.jar</systemPath>
+		</dependency>
+		-->
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+			<scope>runtime</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

@@ -7,12 +7,14 @@
         <format>zip</format>
     </formats>
     <includeBaseDirectory>false</includeBaseDirectory>
+    <!--
     <files>
     	<file>
     		<outputDirectory>/</outputDirectory>
     		<source>${basedir}/lib/lucene-gosen-1.2.1-ipadic.jar</source>
     	</file>
     </files>
+    -->
     <dependencySets>
         <dependencySet>
             <outputDirectory>/</outputDirectory>
